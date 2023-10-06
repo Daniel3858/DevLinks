@@ -6,7 +6,7 @@
 
 :root {
     --text-color: white;
-    --bg-url: url(./assets/bg-mobile.jpg);
+    --bg-url: url(./assets/bg-desktop.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.1);
     --surface-color-hover: rgba(255, 255, 255, 0.05);
@@ -16,7 +16,7 @@
 
 .light {
     --text-color: black;
-    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(255, 255, 255, 0.05);
@@ -75,11 +75,15 @@ body * {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+    animation: slide-back 0.2s;
 }
 
-.light #swicth button {
-    right: 0;
-    left: initial;
+.light #switch button {
+    animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color)
 }
 
 #switch span {
@@ -149,11 +153,30 @@ footer {
 }
 
 /* media queries */
-@media (min-width: 700px) {
+/*@media (min-width: 700px) {
     :root {
         --bg-url: url(./assets/bg-desktop.png)
     };
     .light {
         --bg-url: url(./assets/bg-desktop-light.png)
+    }
+}*/
+
+/* animation */
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
